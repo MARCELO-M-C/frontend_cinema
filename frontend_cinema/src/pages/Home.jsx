@@ -21,18 +21,18 @@ function Home() {
         width: '100%',
         margin: '0 auto',
         color: '#fff',
-        backgroundColor: '#1e1e2f',
+        backgroundColor: '#fff',
         boxShadow: '0 4px 12px rgba(255, 255, 255, 0.2)'        
       }}>
-        <h2>¡Bienvenido!</h2>
-        <p>Inicia sesión o regístrate para reservar tus entradas</p>
+        <h2 style={{ color: '#000' }}>¡Bienvenido!</h2>
+        <p style={{ color: '#000' }}>Inicia sesión o regístrate para reservar tus entradas</p>
         <button
           onClick={() => navigate('/login')}
           style={{
             width: '100%',
             padding: '10px',
             marginBottom: '10px',
-            backgroundColor: '#1e88e5',
+            backgroundColor: '#6a0dad',
             color: '#fff',
             border: 'none',
             borderRadius: '5px'
