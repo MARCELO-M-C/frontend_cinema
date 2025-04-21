@@ -1,0 +1,152 @@
+.cartelera-container {
+    padding-top: 150px; /* el mismo alto aprox. del header fijo */
+    min-height: 100vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background: linear-gradient(to bottom right, #a841ec, #d69ce7);
+    font-family: 'Segoe UI', sans-serif;
+    color: #111;
+    box-sizing: border-box;
+  }
+  
+  /* Cabecera superior */
+  .cartelera-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom right, #a841ec, #d69ce7);
+    padding: 2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cartelera-title {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .cartelera-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn-comprar {
+    padding: 0.5rem 1rem;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  /* Usuario */
+  .user-menu {
+    position: relative;
+  }
+  
+  .user-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .logout-card {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-menu:hover .logout-card {
+    display: block;
+  }
+  
+  /* Grid de películas */
+  .peliculas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Tarjeta de película */
+  .pelicula-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 300px;
+  }
+  
+  .pelicula-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .pelicula-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .pelicula-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pelicula-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .pelicula-info p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .logout-icon-button {
+    background-color: #e53935; /* rojo */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .logout-icon-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .logout-icon {
+    color: white;
+    font-size: 20px;
+  }
