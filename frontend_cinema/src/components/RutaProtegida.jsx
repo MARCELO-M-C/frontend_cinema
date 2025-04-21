@@ -13,8 +13,7 @@ function RutaProtegida({ children, tipoRequerido }) {
   if (tipoRequerido && usuario.tipo !== tipoRequerido) {
     return <Navigate to="/" />;
   }
-
-  // Si todo bien, renderiza el componente hijo
+  
   return children;
 }
 
