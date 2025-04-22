@@ -1,0 +1,119 @@
+import '../actions_pages_styles/funcion_editar.css';
+import { FaFilm, FaVideo, FaCalendarAlt, FaClock } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+
+function FuncionEditar() {
+  const [peliculaId, setPeliculaId] = useState('');
+  const [salaId, setSalaId] = useState('');
+  const [fecha, setFecha] = useState('');
+  const [hora, setHora] = useState('');
+  const [peliculas, setPeliculas] = useState([]);
+  const [salas, setSalas] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cargarDatos = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const config = { headers: { Authorization: `Bearer ${token}` } };
+
+        const [resFuncion, resPeliculas, resSalas] = await Promise.all([
+          axios.get(`http://localhost:3000/api/funciones/${id}`, config),
+          axios.get('http://localhost:3000/api/peliculas', config),
+          axios.get('http://localhost:3000/api/salas', config)
+        ]);
+
+        const datos = resFuncion.data.funcion;
+
+        setPeliculaId(datos.pelicula_id?.toString() ?? '');
+        setSalaId(datos.sala_id?.toString() ?? '');
+        setFecha(datos.fecha ?? '');
+        setHora(datos.hora ?? '');
+
+        setPeliculas(resPeliculas.data.peliculas ?? []);
+        setSalas(resSalas.data.salas ?? []);
+      } catch (error) {
+        console.error('Error al cargar función:', error);
+        alert('Error al cargar los datos de la función');
+      }
+    };
+
+    cargarDatos();
+  }, [id]);
+
+  const handleEditar = async () => {
+    try {
+      const token = localStorage.getItem('token');
+
+      await axios.put(`http://localhost:3000/api/funciones/${id}`, {
+        pelicula_id: peliculaId,
+        sala_id: salaId,
+        fecha,
+        hora
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      alert('Función actualizada correctamente');
+      navigate('/AdminDashboard');
+    } catch (error) {
+      console.error('Error al editar función:', error);
+      alert('Error al editar función');
+    }
+  };
+
+  return (
+    <div className="funcion-editar-page">
+      <div className="funcion-editar-card">
+        <h2>Editar Función</h2>
+
+        <div className="funcion-editar-field">
+          <FaFilm className="funcion-editar-icon" />
+          <select value={peliculaId} onChange={(e) => setPeliculaId(e.target.value)}>
+            <option value="">Seleccionar Película</option>
+            {peliculas.map(p => (
+              <option key={p.id} value={p.id}>{p.titulo}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="funcion-editar-field">
+          <FaVideo className="funcion-editar-icon" />
+          <select value={salaId} onChange={(e) => setSalaId(e.target.value)}>
+            <option value="">Seleccionar Sala</option>
+            {salas.map(s => (
+              <option key={s.id} value={s.id}>{s.nombre}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="funcion-editar-field">
+          <FaCalendarAlt className="funcion-editar-icon" />
+          <input
+            type="date"
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
+          />
+        </div>
+
+        <div className="funcion-editar-field">
+          <FaClock className="funcion-editar-icon" />
+          <input
+            type="time"
+            value={hora}
+            onChange={(e) => setHora(e.target.value)}
+          />
+        </div>
+
+        <button className="funcion-editar-button" onClick={handleEditar}>
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default FuncionEditar;
