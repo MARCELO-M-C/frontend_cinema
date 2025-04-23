@@ -66,6 +66,12 @@ function Login() {
         <button className="login-button" onClick={handleLogin}>
           INICIAR SESIÓN
         </button>
+        <p className="login-link-text">
+            ¿No tienes una cuenta aún?{' '}
+            <span className="login-link" onClick={() => navigate('/register')}>
+              Regístrate aquí
+            </span>
+          </p>
       </div>
     </div>
   );

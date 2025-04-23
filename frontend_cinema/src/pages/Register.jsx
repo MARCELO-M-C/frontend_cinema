@@ -71,6 +71,12 @@ function Register() {
         <button className="register-button" onClick={handleRegistro}>
           Registrarse
         </button>
+        <p className="register-link-text">
+          ¿Ya tienes una cuenta?{' '}
+          <span className="register-link" onClick={() => navigate('/login')}>
+            Inicia sesión aquí
+          </span>
+        </p>
       </div>
     </div>
   );

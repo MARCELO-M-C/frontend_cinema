@@ -64,3 +64,21 @@
   .register-button:hover {
     background: #1565c0;
   }
+
+  .register-link-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+    text-align: center;
+  }
+  
+  .register-link {
+    color: #1f52c2;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }

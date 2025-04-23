@@ -78,3 +78,21 @@ body {
   .login-button:hover {
     background: #7f00ff;
   }
+
+  .login-link-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+    text-align: center;
+  }
+  
+  .login-link {
+    color: #6a1b9a;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
