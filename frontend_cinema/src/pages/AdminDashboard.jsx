@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/AdminDashboard.css';
-import { FaUserCog, FaFilm, FaDoorOpen, FaCalendarAlt, FaClipboardList, FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaUserCog, FaFilm, FaDoorOpen, FaCalendarAlt, FaClipboardList, FaPlus, FaEdit, FaTrash, FaSignOutAlt } from 'react-icons/fa';
 import axios from 'axios';
 
 function AdminDashboard() {
@@ -343,7 +343,7 @@ function AdminDashboard() {
         {datos.map((r) => (
           <tr key={r.id}>
             <td>{r.id}</td>
-            <td>{r.usuario_id}</td>
+            <td>{r.usuario_nombre}</td>
             <td>{r.funcion_id}</td>
             <td>{r.fila}</td>
             <td>{r.columna}</td>
@@ -373,23 +373,27 @@ function AdminDashboard() {
   };
 
   return (
-    <div className="admin-dashboard">
-      <aside className="sidebar">
-        <h2 className="sidebar-title">Administración</h2>
-        <nav className="sidebar-menu">
-          <a onClick={() => setSeccion('usuarios')}><FaUserCog /> Usuarios</a>
-          <a onClick={() => setSeccion('peliculas')}><FaFilm /> Películas</a>
-          <a onClick={() => setSeccion('salas')}><FaDoorOpen /> Salas</a>
-          <a onClick={() => setSeccion('funciones')}><FaCalendarAlt /> Funciones</a>
-          <a onClick={() => setSeccion('reservaciones')}><FaClipboardList /> Reservaciones</a>
-        </nav>
-      </aside>
+  <div className="admin-dashboard">
+    <aside className="sidebar">
+      <h2 className="sidebar-title">Administración</h2>
+      <nav className="sidebar-menu">
+        <a onClick={() => setSeccion('usuarios')}><FaUserCog /> Usuarios</a>
+        <a onClick={() => setSeccion('peliculas')}><FaFilm /> Películas</a>
+        <a onClick={() => setSeccion('salas')}><FaDoorOpen /> Salas</a>
+        <a onClick={() => setSeccion('funciones')}><FaCalendarAlt /> Funciones</a>
+        <a onClick={() => setSeccion('reservaciones')}><FaClipboardList /> Reservaciones</a>
+        <a onClick={() => { localStorage.removeItem('token'); navigate('/login'); }}><FaSignOutAlt /> Cerrar Sesión</a>
 
-      <main className="dashboard-content">
-        {renderContenido()}
-      </main>
-    </div>
-  );
+      </nav>   
+      
+      
+    </aside>
+
+    <main className="dashboard-content">
+      {renderContenido()}
+    </main>
+  </div>
+);
 }
 
 export default AdminDashboard;

@@ -68,6 +68,9 @@ function SalaCrear() {
         <button className="sala-crear-button" onClick={handleCrear}>
           Crear Sala
         </button>
+        <button className="sala-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );

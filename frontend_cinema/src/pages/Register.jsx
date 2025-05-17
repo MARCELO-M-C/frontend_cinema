@@ -11,21 +11,26 @@ function Register() {
   const navigate = useNavigate();
 
   const handleRegistro = async () => {
-    try {
-      const res = await axios.post('http://localhost:3000/api/usuarios', {
-        nombre,
-        email,
-        contraseña,
-      });
+  if (!nombre.trim() || !email.trim() || !contraseña.trim()) {
+    alert('Por favor, completa todos los campos');
+    return;
+  }
 
-      console.log('Usuario creado:', res.data);
-      alert('Cuenta creada exitosamente');
-      navigate('/login');
-    } catch (error) {
-      console.error('Error en el registro:', error.response?.data || error);
-      alert('Error al crear cuenta');
-    }
-  };
+  try {
+    const res = await axios.post('http://localhost:3000/api/usuarios', {
+      nombre,
+      email,
+      contraseña,
+    });
+
+    console.log('Usuario creado:', res.data);
+    alert('Cuenta creada exitosamente');
+    navigate('/login');
+  } catch (error) {
+    console.error('Error en el registro:', error.response?.data || error);
+    alert('Error al crear cuenta');
+  }
+};
 
   return (
     <div className="register-page">

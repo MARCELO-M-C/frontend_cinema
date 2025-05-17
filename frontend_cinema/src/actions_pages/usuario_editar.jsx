@@ -74,6 +74,9 @@ function UsuarioEditar() {
         <button className="usuario-editar-button" onClick={handleEditar}>
           Guardar Cambios
         </button>
+        <button className="usuario-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .usuario-crear-page {
     height: 100vh;
-    background: #f3f4f6;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,19 @@
     cursor: pointer;
     width: 100%;
     transition: background 0.3s ease;
+  }
+
+  .usuario-volver-button {
+    background: #d68e8e;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
   }
   
   .usuario-crear-button:hover {

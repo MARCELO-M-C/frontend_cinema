@@ -1,6 +1,6 @@
 .pelicula-crear-page {
   height: 100vh;
-  background: #f5f5f5;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@
 }
 
 .pelicula-crear-button {
-  background: #1e88e5;
+  background: #43a047;
   border: none;
   padding: 0.7rem 2rem;
   border-radius: 8px;
@@ -61,6 +61,19 @@
   width: 100%;
   transition: background 0.3s ease;
 }
+
+.pelicula-volver-button {
+    background: #d68e8e;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+  }
 
 .pelicula-crear-button:hover {
   background: #1565c0;

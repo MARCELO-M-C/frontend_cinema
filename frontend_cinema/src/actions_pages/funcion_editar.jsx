@@ -111,6 +111,9 @@ function FuncionEditar() {
         <button className="funcion-editar-button" onClick={handleEditar}>
           Guardar Cambios
         </button>
+        <button className="funcion-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );

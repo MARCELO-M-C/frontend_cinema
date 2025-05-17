@@ -80,6 +80,9 @@ function PeliculaCrear() {
         <button className="pelicula-crear-button" onClick={handleCrear}>
           Crear Película
         </button>
+        <button className="pelicula-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );

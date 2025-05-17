@@ -12,30 +12,35 @@ function CrearUsuario() {
   const navigate = useNavigate();
 
   const handleCrear = async () => {
-    try {
-      const token = localStorage.getItem('token');
+  if (!nombre.trim() || !email.trim() || !contraseña.trim()) {
+    alert('Por favor, completa todos los campos obligatorios');
+    return;
+  }
 
-      const nuevoUsuario = {
-        nombre,
-        email,
-        contraseña
-      };
+  try {
+    const token = localStorage.getItem('token');
 
-      if (tipo.trim()) {
-        nuevoUsuario.tipo = tipo.trim();
-      }
+    const nuevoUsuario = {
+      nombre,
+      email,
+      contraseña
+    };
 
-      await axios.post('http://localhost:3000/api/usuarios', nuevoUsuario, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-
-      alert('Usuario creado exitosamente');
-      navigate('/AdminDashboard');
-    } catch (error) {
-      console.error('Error al crear usuario:', error);
-      alert('Error al crear usuario');
+    if (tipo.trim()) {
+      nuevoUsuario.tipo = tipo.trim();
     }
-  };
+
+    await axios.post('http://localhost:3000/api/usuarios', nuevoUsuario, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    alert('Usuario creado exitosamente');
+    navigate('/AdminDashboard');
+  } catch (error) {
+    console.error('Error al crear usuario:', error);
+    alert('Error al crear usuario');
+  }
+};
 
   return (
     <div className="usuario-crear-page">
@@ -91,6 +96,9 @@ function CrearUsuario() {
 
         <button className="usuario-crear-button" onClick={handleCrear}>
           Crear Usuario
+        </button>
+        <button className="usuario-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
         </button>
       </div>
     </div>

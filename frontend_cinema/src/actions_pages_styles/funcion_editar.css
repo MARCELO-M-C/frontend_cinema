@@ -1,14 +1,12 @@
-.funcion-crear-page,
 .funcion-editar-page {
   height: 100vh;
-  background: #f5f5f5;
+  background: #fffefe;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', sans-serif;
 }
 
-.funcion-crear-card,
 .funcion-editar-card {
   background: #ffffff;
   border-radius: 16px;
@@ -21,13 +19,11 @@
   align-items: center;
 }
 
-.funcion-crear-card h2,
 .funcion-editar-card h2 {
   margin-bottom: 1rem;
   color: #1e1e1e;
 }
 
-.funcion-crear-field,
 .funcion-editar-field {
   display: flex;
   align-items: center;
@@ -39,9 +35,6 @@
   width: 100%;
 }
 
-.funcion-crear-field input,
-.funcion-editar-field input,
-.funcion-crear-field select,
 .funcion-editar-field select {
   background: transparent;
   border: none;
@@ -52,13 +45,11 @@
   font-size: 1rem;
 }
 
-.funcion-crear-icon,
 .funcion-editar-icon {
   color: #444;
   font-size: 1.1rem;
 }
 
-.funcion-crear-button,
 .funcion-editar-button {
   background: #1e88e5;
   border: none;

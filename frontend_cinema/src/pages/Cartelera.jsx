@@ -1,21 +1,15 @@
-import '../styles/Cartelera.css';
-import { FaSignOutAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/Cartelera.css';
+import { FaTicketAlt, FaSignOutAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function Cartelera() {
-  const navigate = useNavigate();
   const [peliculas, setPeliculas] = useState([]);
-
-  const cerrarSesion = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    navigate('/login');
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const obtenerPeliculas = async () => {
+    const fetchPeliculas = async () => {
       try {
         const res = await axios.get('http://localhost:3000/api/peliculas');
         setPeliculas(res.data.peliculas);
@@ -23,41 +17,43 @@ function Cartelera() {
         console.error('Error al cargar las películas:', error);
       }
     };
-
-    obtenerPeliculas();
+    fetchPeliculas();
   }, []);
 
-  return (
-    <div className="cartelera-container">
-      {/* Encabezado fijo */}
-      <header className="cartelera-header">
-        <h1 className="cartelera-title">Esta es nuestra cartelera</h1>
-        <div className="cartelera-actions">
-          <button className="btn-comprar">Comprar boleto</button>
-          <div className="user-menu">
-            <button className="logout-icon-button" onClick={cerrarSesion}>
-              <FaSignOutAlt className="logout-icon" />
-            </button>
-          </div>
-        </div>
-      </header>
+  const cerrarSesion = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
 
-      {/* Películas (aparecen debajo del header) */}
-      <section className="peliculas-grid">
-        {peliculas.length === 0 ? (
-          <p>Cargando películas...</p>
-        ) : (
-          peliculas.map((pelicula) => (
-            <div className="pelicula-card" key={pelicula.id}>
-              <img src={pelicula.poster_url} alt={pelicula.titulo} />
-              <div className="pelicula-info">
-                <h3>{pelicula.titulo}</h3>
-                <p>{pelicula.sinopsis}</p>
+  return (
+    <div className="cartelera-dashboard">
+      <aside className="sidebar">
+        <h2 className="sidebar-title">Cine Digital</h2>
+        <div className="sidebar-menu">
+          <a onClick={() => navigate('/comprar_boleto')}><FaTicketAlt /> Comprar Boleto</a>
+        </div>
+        <div className="sidebar-menu">
+          <a onClick={cerrarSesion}><FaSignOutAlt /> Cerrar Sesión</a>
+        </div>
+      </aside>
+
+      <main className="cartelera-content">
+        <h1 className="titulo">Cartelera</h1>
+        <div className="contenedor-peliculas">
+          {peliculas.map((p) => (
+            <div
+              className="card"
+              key={p.id}
+              style={{ backgroundImage: `url('${p.poster_url}')` }}
+            >
+              <div className="overlay">
+                <h3>{p.titulo}</h3>
+                <p>{p.sinopsis}</p>
               </div>
             </div>
-          ))
-        )}
-      </section>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }

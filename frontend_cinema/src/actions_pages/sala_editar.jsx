@@ -94,6 +94,9 @@ function SalaEditar() {
         <button className="sala-editar-button" onClick={handleEditar}>
           Guardar Cambios
         </button>
+        <button className="sala-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );

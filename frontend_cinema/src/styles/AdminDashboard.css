@@ -27,7 +27,13 @@
 }
 
 .sidebar-menu {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-menu a:last-child {
+  margin-top: auto;
 }
 
 .sidebar-menu a {

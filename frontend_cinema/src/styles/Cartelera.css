@@ -1,152 +1,109 @@
-.cartelera-container {
-    padding-top: 150px; /* el mismo alto aprox. del header fijo */
-    min-height: 100vh;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background: linear-gradient(to bottom right, #a841ec, #d69ce7);
-    font-family: 'Segoe UI', sans-serif;
-    color: #111;
-    box-sizing: border-box;
-  }
-  
-  /* Cabecera superior */
-  .cartelera-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: linear-gradient(to bottom right, #a841ec, #d69ce7);
-    padding: 2rem 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .cartelera-title {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .cartelera-actions {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .btn-comprar {
-    padding: 0.5rem 1rem;
-    background-color: #000000;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  /* Usuario */
-  .user-menu {
-    position: relative;
-  }
-  
-  .user-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-  }
-  
-  .logout-card {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    background: #fff;
-    color: #000;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    display: none;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .user-menu:hover .logout-card {
-    display: block;
-  }
-  
-  /* Grid de películas */
-  .peliculas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Tarjeta de película */
-  .pelicula-card {
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-width: 300px;
-  }
-  
-  .pelicula-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .pelicula-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-  
-  .pelicula-info {
-    padding: 1rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .pelicula-info h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.1rem;
-  }
-  
-  .pelicula-info p {
-    font-size: 0.9rem;
-    color: #555;
-  }
+.cartelera-dashboard {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  .logout-icon-button {
-    background-color: #e53935; /* rojo */
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .logout-icon-button:hover {
-    background-color: #d32f2f;
-  }
-  
-  .logout-icon {
-    color: white;
-    font-size: 20px;
-  }
+.sidebar {
+  background: linear-gradient(180deg, #5a09ac, #a402b9);
+  color: white;
+  width: 220px;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.sidebar-menu a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  transition: background 0.3s;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sidebar-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cartelera-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f3f4f6;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.contenedor-peliculas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 150%; /* Aspect ratio 2:3 */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 100%;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.card:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.overlay p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}

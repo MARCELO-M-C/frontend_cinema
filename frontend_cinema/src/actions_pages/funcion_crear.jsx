@@ -97,6 +97,9 @@ function FuncionCrear() {
         <button className="funcion-crear-button" onClick={handleCrear}>
           Crear Función
         </button>
+        <button className="funcion-volver-button" onClick={() => navigate('/AdminDashboard')}>
+          Volver al Panel de Control
+        </button>
       </div>
     </div>
   );
