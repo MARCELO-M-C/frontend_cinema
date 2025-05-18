@@ -18,9 +18,6 @@ import SalaEditar from './actions_pages/sala_editar';
 import FuncionCrear from './actions_pages/funcion_crear';
 import FuncionEditar from './actions_pages/funcion_editar';
 
-import ReservacionCrear from './actions_pages/reservacion_crear';
-import ReservacionEditar from './actions_pages/reservacion_editar';
-
 import ComprarBoleto from './pages/comprar_boleto';
 
 function App() {
@@ -103,24 +100,8 @@ function App() {
             <FuncionEditar />
           </RutaProtegida>
         }
-      />
-      <Route
-        path="/reservacion_crear"
-        element={
-          <RutaProtegida tipoRequerido="admin">
-            <ReservacionCrear />
-          </RutaProtegida>
-        }
-      />
-      <Route
-        path="/reservacion_editar/:id"
-        element={
-          <RutaProtegida tipoRequerido="admin">
-            <ReservacionEditar />
-          </RutaProtegida>
-        }
-      />
-
+      />   
+      
       {/* Ruta protegida SOLO para clientes */}
       <Route
         path="/cartelera"

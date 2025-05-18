@@ -163,10 +163,7 @@ function AdminDashboard() {
       )}
   
       {seccion === 'reservaciones' && (
-        <>
-          <button className="btn editar" onClick={() => navigate(`/reservacion_editar/${item.id}`)}>
-            <FaEdit />
-          </button>
+        <>          
           <button
             className="btn eliminar"
             onClick={async () => {
@@ -309,8 +306,8 @@ function AdminDashboard() {
         {datos.map((f) => (
           <tr key={f.id}>
             <td>{f.id}</td>
-            <td>{f.pelicula}</td>
-            <td>{f.sala}</td>
+            <td>{f.pelicula?.titulo}</td>
+            <td>{f.sala?.nombre}</td>
             <td>{new Date(f.fecha).toLocaleDateString('es-ES')}</td>
             <td>{f.hora}</td>
             {renderAcciones(f)}
@@ -324,7 +321,7 @@ function AdminDashboard() {
   const renderReservaciones = () => (
     <>
       <div className="acciones-superiores">
-      <button className="btn crear-grande" onClick={() => navigate('/reservacion_crear')}>
+      <button className="btn crear-grande" onClick={() => navigate('/comprar_boleto')}>
         <FaPlus /> Crear Reservación
       </button>
     </div>

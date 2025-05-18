@@ -10,6 +10,7 @@ function UsuarioEditar() {
   const [tipo, setTipo] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
+  const [mensajeExito, setMensajeExito] = useState('');
 
   useEffect(() => {
     const obtenerUsuario = async () => {
@@ -38,8 +39,11 @@ function UsuarioEditar() {
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      alert('Usuario actualizado correctamente');
-      navigate('/AdminDashboard');
+      setMensajeExito('Usuario actualizado exitosamente');
+      setTimeout(() => {
+        setMensajeExito('');
+        navigate('/AdminDashboard');
+      }, 3000);
     } catch (error) {
       console.error('Error al editar usuario:', error);
       alert('Error al editar usuario');
@@ -78,6 +82,21 @@ function UsuarioEditar() {
           Volver al Panel de Control
         </button>
       </div>
+      {mensajeExito && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          backgroundColor: '#4caf50',
+          color: 'white',
+          padding: '1rem 1.5rem',
+          borderRadius: '8px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          zIndex: 999
+        }}>
+          ✅ {mensajeExito}
+        </div>
+      )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ function CrearUsuario() {
   const [contraseña, setContraseña] = useState('');
   const [tipo, setTipo] = useState('');
   const navigate = useNavigate();
+  const [mensajeExito, setMensajeExito] = useState('');
 
   const handleCrear = async () => {
   if (!nombre.trim() || !email.trim() || !contraseña.trim()) {
@@ -34,8 +35,11 @@ function CrearUsuario() {
       headers: { Authorization: `Bearer ${token}` }
     });
 
-    alert('Usuario creado exitosamente');
-    navigate('/AdminDashboard');
+    setMensajeExito('Usuario creado exitosamente');
+    setTimeout(() => {
+      setMensajeExito('');
+      navigate('/AdminDashboard');
+    }, 3000);
   } catch (error) {
     console.error('Error al crear usuario:', error);
     alert('Error al crear usuario');
@@ -101,6 +105,21 @@ function CrearUsuario() {
           Volver al Panel de Control
         </button>
       </div>
+      {mensajeExito && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          backgroundColor: '#4caf50',
+          color: 'white',
+          padding: '1rem 1.5rem',
+          borderRadius: '8px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          zIndex: 999
+        }}>
+          ✅ {mensajeExito}
+        </div>
+      )}
     </div>
   );
 }
