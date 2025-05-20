@@ -15,7 +15,7 @@ function SalaCrear() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.post('http://localhost:3000/api/salas', {
+      await axios.post('https://backendcinema-production.up.railway.app/api/salas', {
         nombre,
         filas,
         columnas

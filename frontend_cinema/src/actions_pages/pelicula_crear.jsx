@@ -16,7 +16,7 @@ function PeliculaCrear() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.post('http://localhost:3000/api/peliculas', {
+      await axios.post('https://backendcinema-production.up.railway.app/api/peliculas', {
         titulo,
         poster_url: posterUrl,
         duracion,

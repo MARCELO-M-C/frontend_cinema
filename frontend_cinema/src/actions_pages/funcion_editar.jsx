@@ -22,9 +22,9 @@ function FuncionEditar() {
         const config = { headers: { Authorization: `Bearer ${token}` } };
 
         const [resFuncion, resPeliculas, resSalas] = await Promise.all([
-          axios.get(`http://localhost:3000/api/funciones/${id}`, config),
-          axios.get('http://localhost:3000/api/peliculas', config),
-          axios.get('http://localhost:3000/api/salas', config)
+          axios.get(`https://backendcinema-production.up.railway.app/api/funciones/${id}`, config),
+          axios.get('https://backendcinema-production.up.railway.app/api/peliculas', config),
+          axios.get('https://backendcinema-production.up.railway.app/api/salas', config)
         ]);
 
         const datos = resFuncion.data.funcion;
@@ -49,7 +49,7 @@ function FuncionEditar() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.put(`http://localhost:3000/api/funciones/${id}`, {
+      await axios.put(`https://backendcinema-production.up.railway.app/api/funciones/${id}`, {
         pelicula_id: peliculaId,
         sala_id: salaId,
         fecha,

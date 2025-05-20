@@ -16,7 +16,7 @@ function SalaEditar() {
     const obtenerSala = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:3000/api/salas/${id}`, {
+        const res = await axios.get(`https://backendcinema-production.up.railway.app/api/salas/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -41,7 +41,7 @@ function SalaEditar() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.put(`http://localhost:3000/api/salas/${id}`, {
+      await axios.put(`https://backendcinema-production.up.railway.app/api/salas/${id}`, {
         nombre,
         filas: parseInt(filas),
         columnas: parseInt(columnas)

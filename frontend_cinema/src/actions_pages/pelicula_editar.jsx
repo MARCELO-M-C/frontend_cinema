@@ -17,7 +17,7 @@ function PeliculaEditar() {
     const obtenerPelicula = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:3000/api/peliculas/${id}`, {
+        const res = await axios.get(`https://backendcinema-production.up.railway.app/api/peliculas/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -40,7 +40,7 @@ function PeliculaEditar() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.put(`http://localhost:3000/api/peliculas/${id}`, {
+      await axios.put(`https://backendcinema-production.up.railway.app/api/peliculas/${id}`, {
         titulo,
         poster_url: posterUrl,
         duracion: parseInt(duracion),

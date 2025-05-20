@@ -20,8 +20,8 @@ function FuncionCrear() {
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       const [resPeliculas, resSalas] = await Promise.all([
-        axios.get('http://localhost:3000/api/peliculas', config),
-        axios.get('http://localhost:3000/api/salas', config)
+        axios.get('https://backendcinema-production.up.railway.app/api/peliculas', config),
+        axios.get('https://backendcinema-production.up.railway.app/api/salas', config)
       ]);
 
       setPeliculas(resPeliculas.data.peliculas ?? []);
@@ -35,7 +35,7 @@ function FuncionCrear() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.post('http://localhost:3000/api/funciones', {
+      await axios.post('https://backendcinema-production.up.railway.app/api/funciones', {
         pelicula_id: peliculaId,
         sala_id: salaId,
         fecha,

@@ -14,7 +14,7 @@ function ComprarBoleto() {
   const [nombreReserva, setNombreReserva] = useState('');
 
   useEffect(() => {
-  fetch('http://localhost:3000/api/funciones')
+  fetch('https://backendcinema-production.up.railway.app/api/funciones')
     .then(res => res.json())
     .then(data => {
       if (Array.isArray(data)) {
@@ -40,7 +40,7 @@ function ComprarBoleto() {
     const totalFilas = sala.filas;
     const totalColumnas = sala.columnas;
 
-    const res = await fetch(`http://localhost:3000/api/reservas/todas`, {
+    const res = await fetch(`https://backendcinema-production.up.railway.app/api/reservas/todas`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -114,7 +114,7 @@ function ComprarBoleto() {
     return;
   }
 
-  const res = await fetch('http://localhost:3000/api/reservas/multiples', {
+  const res = await fetch('https://backendcinema-production.up.railway.app/api/reservas/multiples', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

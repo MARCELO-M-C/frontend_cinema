@@ -18,8 +18,8 @@ function AdminDashboard() {
         const token = localStorage.getItem('token');
       
         const endpoint = seccion === 'reservaciones'
-          ? 'http://localhost:3000/api/reservas/todas'
-          : `http://localhost:3000/api/${seccion}`;
+          ? 'https://backendcinema-production.up.railway.app/api/reservas/todas'
+          : `https://backendcinema-production.up.railway.app/api/${seccion}`;
       
         const res = await axios.get(endpoint, {
           headers: {
@@ -66,7 +66,7 @@ function AdminDashboard() {
               if (confirmado) {
                 try {
                   const token = localStorage.getItem('token');
-                  await axios.delete(`http://localhost:3000/api/usuarios/${item.id}`, {
+                  await axios.delete(`https://backendcinema-production.up.railway.app/api/usuarios/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                   });
                   setDatos((prev) => prev.filter((u) => u.id !== item.id));
@@ -93,7 +93,7 @@ function AdminDashboard() {
               if (confirmado) {
                 try {
                   const token = localStorage.getItem('token');
-                  await axios.delete(`http://localhost:3000/api/peliculas/${item.id}`, {
+                  await axios.delete(`https://backendcinema-production.up.railway.app/api/peliculas/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                   });
                   setDatos((prev) => prev.filter((p) => p.id !== item.id));
@@ -120,7 +120,7 @@ function AdminDashboard() {
               if (confirmado) {
                 try {
                   const token = localStorage.getItem('token');
-                  await axios.delete(`http://localhost:3000/api/salas/${item.id}`, {
+                  await axios.delete(`https://backendcinema-production.up.railway.app/api/salas/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                   });
                   setDatos((prev) => prev.filter((s) => s.id !== item.id));
@@ -147,7 +147,7 @@ function AdminDashboard() {
               if (confirmado) {
                 try {
                   const token = localStorage.getItem('token');
-                  await axios.delete(`http://localhost:3000/api/funciones/${item.id}`, {
+                  await axios.delete(`https://backendcinema-production.up.railway.app/api/funciones/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                   });
                   setDatos((prev) => prev.filter((f) => f.id !== item.id));
@@ -171,7 +171,7 @@ function AdminDashboard() {
               if (confirmado) {
                 try {
                   const token = localStorage.getItem('token');
-                  await axios.delete(`http://localhost:3000/api/reservas/${item.id}`, {
+                  await axios.delete(`https://backendcinema-production.up.railway.app/api/reservas/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                   });
                   setDatos((prev) => prev.filter((r) => r.id !== item.id));

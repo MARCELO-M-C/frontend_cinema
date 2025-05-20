@@ -11,7 +11,7 @@ function Cartelera() {
   useEffect(() => {
     const fetchPeliculas = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/peliculas');
+        const res = await axios.get('https://backendcinema-production.up.railway.app/api/peliculas');
         setPeliculas(res.data.peliculas);
       } catch (error) {
         console.error('Error al cargar las películas:', error);

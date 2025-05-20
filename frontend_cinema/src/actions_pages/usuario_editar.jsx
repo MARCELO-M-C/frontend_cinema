@@ -15,7 +15,7 @@ function UsuarioEditar() {
   useEffect(() => {
     const obtenerUsuario = async () => {
       const token = localStorage.getItem('token');
-      const res = await axios.get(`http://localhost:3000/api/usuarios/${id}`, {
+      const res = await axios.get(`https://backendcinema-production.up.railway.app/api/usuarios/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
   
@@ -31,7 +31,7 @@ function UsuarioEditar() {
     try {
       const token = localStorage.getItem('token');
 
-      await axios.put(`http://localhost:3000/api/usuarios/${id}`, {
+      await axios.put(`https://backendcinema-production.up.railway.app/api/usuarios/${id}`, {
         nombre,
         email,
         tipo, 

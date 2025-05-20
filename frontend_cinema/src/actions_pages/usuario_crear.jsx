@@ -31,7 +31,7 @@ function CrearUsuario() {
       nuevoUsuario.tipo = tipo.trim();
     }
 
-    await axios.post('http://localhost:3000/api/usuarios', nuevoUsuario, {
+    await axios.post('https://backendcinema-production.up.railway.app/api/usuarios', nuevoUsuario, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
