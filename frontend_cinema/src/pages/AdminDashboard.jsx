@@ -374,12 +374,12 @@ function AdminDashboard() {
     <aside className="sidebar">
       <h2 className="sidebar-title">Administración</h2>
       <nav className="sidebar-menu">
-        <a onClick={() => setSeccion('usuarios')}><FaUserCog /> Usuarios</a>
-        <a onClick={() => setSeccion('peliculas')}><FaFilm /> Películas</a>
-        <a onClick={() => setSeccion('salas')}><FaDoorOpen /> Salas</a>
-        <a onClick={() => setSeccion('funciones')}><FaCalendarAlt /> Funciones</a>
-        <a onClick={() => setSeccion('reservaciones')}><FaClipboardList /> Reservaciones</a>
-        <a onClick={() => { localStorage.removeItem('token'); navigate('/login'); }}><FaSignOutAlt /> Cerrar Sesión</a>
+        <button onClick={() => setSeccion('usuarios')}><FaUserCog /> Usuarios</button>
+        <button onClick={() => setSeccion('peliculas')}><FaFilm /> Películas</button>
+        <button onClick={() => setSeccion('salas')}><FaDoorOpen /> Salas</button>
+        <button onClick={() => setSeccion('funciones')}><FaCalendarAlt /> Funciones</button>
+        <button onClick={() => setSeccion('reservaciones')}><FaClipboardList /> Reservaciones</button>
+        <button onClick={() => { localStorage.removeItem('token'); navigate('/login'); }}><FaSignOutAlt /> Cerrar Sesión</button>
 
       </nav>   
       
